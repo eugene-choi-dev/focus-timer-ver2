@@ -15,17 +15,13 @@
     "serve": "^13.0.2"
   },
   "scripts": {
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
-    "docker:build": "docker image build . -t thinkful-ed/zid-fe-project-pomodoro-timer-01-qualified",
-    "docker:run": "docker run --rm -it -p 3000:3000 thinkful-ed/zid-fe-project-pomodoro-timer-01-qualified",
-    "docker:stop": "docker stop $(docker ps -q)",
-    "docker:test": "docker run -t  thinkful-ed/zid-fe-project-pomodoro-timer-01-qualified npm test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start": "react-scripts start",
-    "start:solution": "npm run -it docker:build && npm run docker:run",
-    "test": "react-scripts test",
-    "test:solution": "npm run docker:build && npm run docker:test"
-  },
+    "heroku-postbuild": "npm run build"
+    },
   "eslintConfig": {
     "extends": "react-app"
   },
